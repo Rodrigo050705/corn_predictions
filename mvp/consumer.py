@@ -1,7 +1,8 @@
 import argparse
 import json
+import random
 import time
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import numpy as np
@@ -15,6 +16,28 @@ from model import load_meta, build_preprocess, load_densenet121_from_state_dict,
 from campp import GradCAMPlusPlus, densenet_target_layer
 from masking import cam_to_mask_adaptive, cam_is_flat
 from annotate import annotate_with_mask, draw_label
+
+
+def random_2026_date() -> str:
+    start = datetime(2026, 1, 1)
+    end = datetime(2026, 12, 31)
+    offset_days = random.randint(0, (end - start).days)
+    sampled = start + timedelta(days=offset_days)
+    return sampled.strftime("%d/%m/%Y")
+
+
+def random_plot() -> str:
+    return f"PLT{random.randint(1, 20)}"
+
+
+def random_farm_name() -> str:
+    return random.choice(
+        [
+            "Fazenda Recanto",
+            "Fazenda Sol Nascente",
+            "Fazenda Capao Rico",
+        ]
+    )
 
 
 def main():
@@ -65,6 +88,9 @@ def main():
                 continue
 
             created_at = datetime.now(timezone.utc).isoformat()
+            sampled_date = random_2026_date()
+            farm_name = random_farm_name()
+            plot = random_plot()
             notes = None
             mask_path = None
             annot_path = None
@@ -116,6 +142,9 @@ def main():
                 insert_result(
                     conn=conn,
                     created_at=created_at,
+                    sampled_date=sampled_date,
+                    farm_name=farm_name,
+                    plot=plot,
                     input_path=str(p),
                     sha256=sha,
                     pred_label=pred_label,
@@ -131,6 +160,9 @@ def main():
                 insert_result(
                     conn=conn,
                     created_at=created_at,
+                    sampled_date=sampled_date,
+                    farm_name=farm_name,
+                    plot=plot,
                     input_path=str(p),
                     sha256=sha,
                     pred_label="error",
