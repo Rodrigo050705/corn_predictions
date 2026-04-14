@@ -2,7 +2,9 @@
 
 Sistema de Visão Computacional baseado em Deep Learning para detecção e classificação de patologias em folhas de milho, com integração automática para Business Intelligence (BI).
 
-<img width="1479" height="772" alt="image" src="https://github.com/user-attachments/assets/d82e4275-197b-4c97-98ea-4bd87b5a45c6" />
+<img width="740" height="386" alt="image" src="https://github.com/user-attachments/assets/d82e4275-197b-4c97-98ea-4bd87b5a45c6" />
+<img width="872" height="729" alt="image" src="https://github.com/user-attachments/assets/b8174ff3-7955-4f44-a93b-0c249a00d58b" />
+
 
 
 ## 📝 Resumo
