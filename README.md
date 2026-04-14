@@ -2,6 +2,9 @@
 
 Sistema de Visão Computacional baseado em Deep Learning para detecção e classificação de patologias em folhas de milho, com integração automática para Business Intelligence (BI).
 
+<img width="1479" height="772" alt="image" src="https://github.com/user-attachments/assets/d82e4275-197b-4c97-98ea-4bd87b5a45c6" />
+
+
 ## 📝 Resumo
 O projeto utiliza a arquitetura de rede neural **DenseNet121** para analisar imagens de folhas de milho e classificá-las entre saudáveis ou doentes. O diferencial do sistema é a aplicação de **Grad-CAM++**, que gera mapas de calor (máscaras) sobre a imagem original, explicando visualmente quais áreas da folha levaram o modelo àquela conclusão.
 
