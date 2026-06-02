@@ -20,6 +20,11 @@ O projeto utiliza a arquitetura de rede neural **DenseNet121** para analisar ima
 - **Banco de Dados:** SQLite (Armazenamento local de inferências)
 - **Integração e BI:** Google Sheets API & Google Looker Studio
 
+## Links de acesso
+  - **Dashboard:** https://datastudio.google.com/reporting/A1d8af4-8967-470c-ae3635cabf8943fb
+  - **Base de dados:** https://docs.google.com/spreadsheets/d/1N5G3ZNGLyvsygI4FzlMYEYSbwC8uUPAZxHPEC0-vBEg/edit?usp=sharing
+  - **Vídeo Explicativo:**  https://youtu.be/H4PDg5tVwx0
+
 ## 🚀 Como Testar (Ambiente Google Colab)
 
 
