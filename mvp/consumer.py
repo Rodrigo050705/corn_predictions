@@ -101,6 +101,11 @@ def main():
                 insert_result(conn, created_at, sampled_date, farm_name, plot, str(p), sha, pred_label, pred_prob, 
                               json.dumps({classes[i]: float(probs[i]) for i in range(len(classes))}), str(annot_file), notes)
                 print(f"✅ Processado: {p.name} -> {pred_label}")
+
+                # 🚀 CHAMADA ADICIONADA PARA AUTOMATIZAÇÃO:
+                # Exporta o banco atualizado para CSV e sincroniza com o Sheets na hora
+                if export_sqlite_to_csv(Path(args.db_path), Path("results.csv"), flatten_probs=True):
+                    upload_to_google_sheets("results.csv", "Dashboard_Saude_Milho")
             except Exception as e:
                 print(f"❌ Erro em {p.name}: {e}")
 
