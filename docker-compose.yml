@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  # Serviço 1: O Simulador que joga imagens no fluxo
+  simulador:
+    build: .
+    container_name: agrosmart_simulador
+    command: python corn_predictions/mvp/producer_simulator.py
+    volumes:
+      - .:/app # Compartilha a pasta para que a imagem caia no fluxo real
+
+  # Serviço 2: O Processador com Visão Computacional e IA
+  processador_ia:
+    build: .
+    container_name: agrosmart_ia
+    command: python corn_predictions/mvp/consumer.py --model_path corn_predictions/models/maize_densenet121_state_dict.pt --meta_path corn_predictions/models/maize_densenet121_meta.json
+    volumes:
+      - .:/app # Mantém o banco SQLite e as imagens anotadas salvos na sua máquina física
+    depends_on:
+      - simulador
