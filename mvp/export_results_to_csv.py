@@ -50,10 +50,10 @@ def export_sqlite_to_csv(db_path: Path, output_csv: Path, flatten_probs: bool = 
     return True
 
 def upload_to_google_sheets(csv_path, sheet_name):
-    print(f"☁️ Sincronizando com Google Sheets...")
-    # auth.authenticate_user()
-    creds, _ = default()
-    gc = gspread.authorize(creds)
+    print(f"☁️ Sincronizando com Google Sheets via Conta de Serviço...")
+    
+    # 🚀 Usa o arquivo de credenciais fixo para o Docker
+    gc = gspread.service_account(filename="credentials.json")
     
     df = pd.read_csv(csv_path)
     df = df.fillna('') 
