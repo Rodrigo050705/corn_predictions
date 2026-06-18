@@ -5,8 +5,6 @@ import sqlite3
 from pathlib import Path
 import pandas as pd
 import gspread
-from google.colab import auth
-from google.auth import default
 
 def export_sqlite_to_csv(db_path: Path, output_csv: Path, flatten_probs: bool = False):
     if not db_path.exists():
