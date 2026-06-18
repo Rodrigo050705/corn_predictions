@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copia e instala as dependências do Python
-COPY corn_predictions/requirements.txt .
+COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 RUN pip install gspread pandas  # Garante as ferramentas de sincronização
 
