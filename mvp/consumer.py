@@ -61,7 +61,7 @@ def main():
     model = load_densenet121_from_state_dict(Path(args.model_path), meta, device)
     campp = GradCAMPlusPlus(model, densenet_target_layer(model))
 
-   print(f"🚀 Iniciando processamento em: {input_dir.resolve()}", flush=True)
+    print(f"🚀 Iniciando processamento em: {input_dir.resolve()}", flush=True)
 
     while True:
         files = list_images(input_dir)
