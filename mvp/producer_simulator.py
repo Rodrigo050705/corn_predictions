@@ -4,8 +4,8 @@ import random
 from pathlib import Path
 
 # Configuração de caminhos
-PASTA_DATASET = Path("corn_predictions/dataset_teste")    # Onde ficam guardadas suas fotos de teste
-PASTA_INPUT = Path("corn_predictions/input_images") # Onde o consumer.py escuta
+PASTA_DATASET = Path("dataset_teste")    # Onde ficam guardadas suas fotos de teste
+PASTA_INPUT = Path("input_images") # Onde o consumer.py escuta
 
 PASTA_INPUT.mkdir(parents=True, exist_ok=True)
 
